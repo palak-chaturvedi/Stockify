@@ -242,7 +242,7 @@ def stockTracker(request):
 
 def view_users(request):
     if (request.method == "GET"):
-        users = UserDetails.objects.all().order_by('profit').values()
+        users = UserDetails.objects.all().order_by('-profit').values()
         return render(request, 'view_users.html',
                       {'users': users,'users':users})
 
@@ -297,6 +297,7 @@ def topg(request):
         'gainers': gainers,
         'losers': losers,
     }
+    print(gainers)
     return render(request, 'topg.html', con)
 
 

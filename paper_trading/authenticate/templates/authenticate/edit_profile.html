@@ -1,5 +1,20 @@
-{% extends 'authenticate/base.html' %}
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="./assets/css/style.css">
+
+  <script src="https://kit.fontawesome.com/be530bfcd4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet"  href="./static1/css/style.css" />
 	<style>
     @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -1598,7 +1613,7 @@ legend {text-align:center}
 			<ul class="navbar-list">
 
 			  <li class="navbar-item">
-				<a href="{% url 'home' %}" class="navbar-link active" data-nav-link>Homepage</a>
+				<a href="{% url 'home' %}" class="navbar-link" data-nav-link>Homepage</a>
 			  </li>
 
 			  <li class="navbar-item">
@@ -1630,15 +1645,15 @@ legend {text-align:center}
 			<span class="line line-3"></span>
 		  </button>
 
-		  <a href="{% url 'edit_profile' %}" class="btn btn-outline">View profile</a>
+		  <a href="{% url 'edit_profile' %}" class="btn btn-outline active" style="background-color: #3C91E6;">View profile</a>
 
 		</div>
 	  </header>
 
-<h2 class ="text-center"> Edit Profile </h2>
+<center style="margin-top:100px;margin-bottom:20px;"> <h2 class ="text-center"> Edit Profile </h2> </center>
 
 
-<form method="POST" action="{% url 'edit_profile' %}">
+<center> <form method="POST" action="{% url 'edit_profile' %}">
 		{% csrf_token %}
 
 		{% if form.errors %}
@@ -1647,7 +1662,7 @@ legend {text-align:center}
                 <button class="close" data-dismiss="alert">
                     <small><sup>x</sup></small>
                   </button>
-               
+
 
                {% for field in form %}
                	{% if field.errors %}
@@ -1657,16 +1672,18 @@ legend {text-align:center}
                	{% endfor %}
 
 
-              </div>
-
+              </div> </center>
+<center>
   {% endif %}
 
 
 		{{ form.as_p }}
 
 
-		<input type="submit" value="Edit Profile" class=" btn btn-secondary">
-    <p><small><a href="{% url 'change_password'%}">Click here</a> to change your password</small></p> 
+		<input type="submit" style=" background: var(--blue);
+		" value="Edit Profile" class=" btn btn-secondary">
+    <p><small><a href="{% url 'change_password'%}">Click here</a> to change your password</small></p>
 	</form>
 
 {% endblock %}
+</center>

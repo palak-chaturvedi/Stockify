@@ -188,15 +188,19 @@ def calculate(request):
         res2 = get_data(stockname,period='1d')
         curr_price = res2[0]
         no_of_stocks = round(float(amount)/float(price),2)
-        total_val = curr_price*no_of_stocks
+        total_val = round(curr_price*no_of_stocks,2)
         print(total_val)
+        profit = ((float(total_val) - float(amount))/float(amount)) * 100
 
         return render(request, "calc.html", context={
             'result': stock_picker,
             'total_val':total_val,
-            'prev_close':res[0],
-            'prev_vol':res[1],
-            'prev_open':res[2],
+            'invest':amount,
+            'time':time,
+            'prev_close':round(res[0],2),
+            'prev_vol':round(res[1],2),
+            'prev_open':round(res[2],2),
+            'profit':round(profit,2),
             'print':True
         })
 
